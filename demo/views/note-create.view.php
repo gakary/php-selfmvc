@@ -15,7 +15,15 @@
                                     <div class="mt-1">
                                     <textarea id="body" name="body" rows="3"
                                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                              placeholder="Here's an idea for a note..."></textarea>
+                                              placeholder="Here's an idea for a note..."
+                                                ><?= /* hold the text content ,  isset($_POST['body']) ? $_POST['body'] : ''
+                                            PHP 8.1 ternary operator syntax : */
+                                            $_POST['body'] ?? '' ?></textarea>
+
+                                        <?php if(isset($errors['body'])) : //isset is to see is that the $errors !null , if not execute?>
+                                        <p class="text-red-500 text-xs mt-2"><?php echo $errors['body'] ?></p>
+                                        <?php endif; ?>
+
                                     </div>
                                 </div>
                             </div>

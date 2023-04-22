@@ -1,17 +1,8 @@
 <?php
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
 
-$routes =[
-    '/'=>'controllers/index.php',
-    '/about'=>'controllers/about.php',
-    //listen for when the user request this url
-    '/notes'=>'controllers/notes.php',
-    //tracking the post id then link to the page
-    '/note'=>'controllers/note.php',
-    '/contact'=>'controllers/contact.php',
-];
+$routes = require('routers.php');
 
 function abort($code = 404){
     http_response_code(404);
@@ -28,4 +19,5 @@ function routeToController($uri,$routes){
         abort();
     }
 }
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 routeToController($uri,$routes);

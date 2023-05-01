@@ -15,6 +15,7 @@ return [
 ];
 
 
+
 /*
  Think about it , If in the future you have specific configuration that is not connected to the database , you have a place to put it
 
